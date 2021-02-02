@@ -16,7 +16,7 @@ function [AUC,AUPR,Acc,Sen,Spe,Pre]=ROCcompute(predictList,trueList,plotOption)
              Vector(v)=1;
              
              tp=sum(Vector==1&trueList==1);
-             tn=sum(Vector==0&trueList==0); % 0 -> 10^-30£¨NCPMDA2£©
+             tn=sum(Vector==0&trueList==0); % 0 -> 10^-30Â£Â¨NCPMDA2Â£Â©
              np=sum(Vector==1&trueList==0);
              nn=sum(Vector==0&trueList==1);
              
@@ -48,13 +48,6 @@ function [AUC,AUPR,Acc,Sen,Spe,Pre]=ROCcompute(predictList,trueList,plotOption)
          AUPR=abs(trapz(Sen,Pre));
          
          if plotOption==1
-%             plot(1-Spe,Sen,'--m','LineWidth',2);
-%             axis([-0.01 1.00 0 1.01]);
-%             xlabel('1-Spe');
-%             ylabel('Sen');
-%             legend('DRPMFDVI(AUC=0.8631)','IMCDVI(AUC=0.6423)','RLSDVI(AUC=0.7341)','NCPDVI(AUC=0.6711)')
-%             
-%             figure;
             plot(Sen,Pre,'--m','LineWidth',2);
             axis([0 1.01 0 1.01]);
             xlabel('Sen');
